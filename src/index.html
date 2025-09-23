@@ -1,13 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MP1</title>
-    </head>
-    <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
-    </body>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Single Page Assignment — Steve Portfolio</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.scss">
+
+  <!-- SVG icon sprite (scalable vector icons) -->
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="icon-arrow-left" viewBox="0 0 24 24">
+      <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+      <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24">
+      <path d="M12 0.5C5.37 0.5 0 5.87 0 12.5c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.262.82-.583 0-.288-.01-1.05-.015-2.06-3.338.725-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.997.108-.775.418-1.305.76-1.605-2.665-.303-5.467-1.333-5.467-5.933 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 0 1 3-.403c1.02.005 2.045.137 3 .403 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.922.43.372.823 1.104.823 2.225 0 1.607-.015 2.902-.015 3.293 0 .322.218.697.825.58C20.565 22.296 24 17.797 24 12.5 24 5.87 18.627.5 12 .5z"/>
+    </symbol>
+
+    <symbol id="icon-email" viewBox="0 0 24 24">
+      <path d="M12 13.065L.75 4.5V20.25C.75 21.22 1.53 22 2.5 22h19c.97 0 1.75-.78 1.75-1.75V4.5l-11.25 8.565zM12 11.065L23.25 2.5H.75L12 11.065z"/>
+    </symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-14h4v2a4 4 0 0 1 4-2zM2 9h4v14H2zM4 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+  </svg>
+</head>
+<body>
+
+  <!-- Header + Sticky Resizing Navbar -->
+  <header id="top">
+    <nav id="main-nav" class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="#top">Steve</a>
+
+        <ul class="nav-links" role="menubar">
+          <li role="none"><a role="menuitem" href="#hero" data-target="hero">Home</a></li>
+          <li role="none"><a role="menuitem" href="#about" data-target="about">About</a></li>
+          <li role="none"><a role="menuitem" href="#projects" data-target="projects">Projects</a></li>
+          <li role="none"><a role="menuitem" href="#carousel" data-target="carousel">Showcase</a></li>
+          <li role="none"><a role="menuitem" href="#media" data-target="media">Media</a></li>
+          <li role="none"><a role="menuitem" href="#contact" data-target="contact">Contact</a></li>
+        </ul>
+
+        <!-- Position indicator -->
+        <div id="position-indicator" aria-hidden="true">
+          <span class="indicator-fill"></span>
+        </div>
+
+        <!-- hamburger for small screens -->
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="bar top"></span>
+          <span class="bar bottom"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero section -->
+    <section id="hero" class="hero">
+      <!-- Background video -->
+      <video class="heromovie-video" autoplay muted loop playsinline>
+        <source src="assets/heromovie.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Overlay content -->
+      <div class="hero-content">
+        <h1>Welcome to CS 409 Single Page Website Submission</h1>
+        <p>The background video should appear behind this text and it should automatically play.</p>
+        <a href="#projects" class="btn">See Projects</a>
+      </div>
+    </section>
+
+    <!-- About (multi-column layout) -->
+    <section id="about" class="stripe about">
+      <div class="container">
+        <h2>About</h2>
+        <div class="multi-column">
+          <article>
+            <h3>Who I am?</h3>
+            <p>My name is Steve, and I am a Master's student at UIUC. I was working with Barclays previously as a Salesforce MMarketing Cloud Developer.</p>
+          </article>
+          <article>
+            <h3>What I Do for fun?</h3>
+            <p>I love to play sports, watch movies, and explore new technologies. Hit me up anytime to play any sport and I'll find time for you!</p>
+          </article>
+          <article>
+            <h3>Where I am from?</h3>
+            <p>My hometown is in Southern India, a place called Kottayam in Kerala. I was brought up in a nearby state (Tamil Nadu), in a city called Chennai.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects (multi-column + icons) -->
+    <section id="projects" class="stripe projects">
+      <div class="container">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+          <div class="card" data-title="Cool Imagination #1" data-description="You can use your Imagination and assume this is a cool, kick-ass project for an interactive dashboard">
+            <div class="card-icon" aria-hidden="true">
+              <svg class="icon" width="40" height="40"><use href="#icon-email"></use></svg>
+            </div>
+            <h4>Interactive Dashboard</h4>
+            <p>Charts, filters, and a polished UI for data exploration.</p>
+          </div>
+
+          <div class="card" data-title="Cool Imagination #2" data-description="Yup now you can imagin a cool Marketing Site that is built and this is the description for it. ">
+            <div class="card-icon" aria-hidden="true">
+              <svg class="icon" width="40" height="40"><use href="#icon-github"></use></svg>
+            </div>
+            <h4>Marketing Site</h4>
+            <p>Landing page with animations, parallax, and conversion-focused layout.</p>
+          </div>
+
+          <div class="card" data-title="Cool Imagination #3" data-description="This is your last and final use of imagination. Pretend this is a cool description for a futuristic portfolio Website  ">
+            <div class="card-icon" aria-hidden="true">
+              <svg class="icon" width="40" height="40"><use href="#icon-linkedin"></use></svg>
+            </div>
+            <h4>Portfolio</h4>
+            <p>Accessible single-page portfolio with keyboard support and smooth scrolling.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carousel -->
+    <section id="carousel" class="stripe carousel">
+      <div class="container">
+        <h2>Showcase Carousel</h2>
+
+        <div class="carousel-wrap" aria-roledescription="carousel" aria-label="Project carousel">
+          <button class="carousel-nav prev" aria-label="Previous slide">
+            <svg width="24" height="24"><use href="#icon-arrow-left"></use></svg>
+          </button>
+
+          <div class="carousel-track" data-current="0">
+            <div class="carousel-slide">
+              <img src="assets/slide-1.jpg" alt="Slide 1 — Dashboard screenshot">
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/slide-2.jpg" alt="Slide 2 — Marketing page screenshot">
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/slide-3.jpg" alt="Slide 3 — Mobile app screenshot">
+            </div>
+          </div>
+
+
+          <button class="carousel-nav next" aria-label="Next slide">
+            <svg width="24" height="24"><use href="#icon-arrow-right"></use></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Background image -->
+    <section id="parallax" class="stripe parallax">
+      <div class="container overlay">
+        <h2>My Dream Car</h2>
+        <p>Background image set to one of my dream cars. Its so cool right? One Day hopefully!</p>
+      </div>
+    </section>
+
+    <!-- Media: video -->
+    <section id="media" class="stripe media">
+      <div class="container">
+        <h2>Media</h2>
+
+        <div class="media-grid" style="display: flex; align-items: center; gap: 2rem;">
+          <div class="video-wrap" style="flex: 1;">
+            <video controls playsinline muted preload="metadata" width="720" height="420">
+              <source src="assets/demo-video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p class="caption">Well I also love to play Valorant, here is a video clip of when I started playing the game.</p>
+          </div>
+
+          <div class="video-text" style="flex: 1; font-size: 2rem; font-weight: 600;">
+            Esports: Valorant is also one of my hobbies!
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="stripe contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>Follow or get in touch</p>
+        <div class="social contact-icons">
+          <a href="mailto:stonio2@illinois.edu" class="social-link" aria-label="Email">
+            <svg width="40" height="40"><use href="#icon-email"></use></svg>
+          </a>
+          <a href="https://github.com/steveaby" class="social-link" aria-label="GitHub">
+            <svg width="40" height="40"><use href="#icon-github"></use></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/steveaby/" class="social-link" aria-label="LinkedIn">
+            <svg width="40" height="40"><use href="#icon-linkedin"></use></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+  <!-- Footer -->
+  <footer class="stripe footer">
+    <div class="container">
+      <small>&copy; <span id="year"></span> Built for CS Assignment</small>
+    </div>
+  </footer>
+  <!-- Modal -->
+   <div id="project-modal" class="modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-panel">
+      <button class="modal-close">X</button>
+      <div id="project-modal-icon" class="card-icon" aria-hidden="true"></div>
+      <h3 id="project-modal-title"></h3>
+      <p id="project-modal-description"></p>
+    </div>
+  </div>
+  <script src="js/main.js" defer></script>
+</body>
 </html>
