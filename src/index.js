@@ -7,7 +7,7 @@
 import './index.html';
 
 // Stylesheets
-import './css/main.css';
+import './css/main.scss';
 
 // Scripts
 import './js/main.js';
